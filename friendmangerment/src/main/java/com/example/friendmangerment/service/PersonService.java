@@ -5,7 +5,9 @@ import com.example.friendmangerment.exception.ResourceAlreadyExist;
 import com.example.friendmangerment.model.Person;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 
 public interface PersonService {
-    Person register(Person peson) throws ResourceAlreadyExist, InValidEmailException;
+    Map<String, Boolean> register(Person peson) throws ResourceAlreadyExist, InValidEmailException;
 }

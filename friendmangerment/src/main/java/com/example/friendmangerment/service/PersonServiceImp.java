@@ -8,6 +8,10 @@ import com.example.friendmangerment.model.Person;
 import com.example.friendmangerment.validation.ValidateEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class PersonServiceImp implements PersonService {
@@ -16,14 +20,17 @@ public class PersonServiceImp implements PersonService {
     private PersonRepository personRepository;
 
     @Override
-    public Person register(Person person) throws ResourceAlreadyExist, InValidEmailException {
+    public Map<String, Boolean> register(Person person) throws ResourceAlreadyExist, InValidEmailException {
         if(personRepository.existsByEmail(person.getEmail())) {
-                throw new ResourceAlreadyExist();
+            throw new ResourceAlreadyExist();
         }
         ValidateEmail vailidateEmail = new ValidateEmail();
         if(vailidateEmail.validaEmail(person.getEmail()) == false) {
             throw new InValidEmailException();
         }
-        return personRepository.save(person);
+        Map<String, Boolean> result = new HashMap<>();
+        personRepository.save(person);
+        result.put("status", true);
+        return  result;
     }
 }
