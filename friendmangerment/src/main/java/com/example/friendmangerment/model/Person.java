@@ -1,4 +1,5 @@
 package com.example.friendmangerment.model;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "people")
 @Data
+@AllArgsConstructor
 public class Person {
 
     @Id
@@ -21,11 +23,7 @@ public class Person {
     @Column(name= "email_address", nullable = false,unique = true)
     private String email;
 
-    public Person() {
-    }
-    public Person(long id, String email) {
-        this.id = id;
-        this.email = email;
-    }
+    public Person(){}
+
 
 }

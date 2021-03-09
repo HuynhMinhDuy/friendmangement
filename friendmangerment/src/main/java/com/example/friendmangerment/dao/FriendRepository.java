@@ -4,9 +4,11 @@ import com.example.friendmangerment.model.FriendManagement;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface FriendRepository extends JpaRepository<FriendManagement, FriendManagement.FriendPk> {
     @Query(nativeQuery = true, value
             = "select p2.email_address \n"
@@ -21,4 +23,5 @@ public interface FriendRepository extends JpaRepository<FriendManagement, Friend
             + "  join people p2 on f.PID2 = p2.ID \n"
             + "  where p2.email_address = :email")
     List<String> findAllFriendsEmail(@Param("email") String email);
+
 }

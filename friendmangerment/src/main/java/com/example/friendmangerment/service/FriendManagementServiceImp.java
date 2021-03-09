@@ -51,7 +51,6 @@ public class FriendManagementServiceImp implements FriendManagementService {
         }
 
         friendRepository.save(friendManagement);
-
         Map<String, Boolean> result = new HashMap<>();
         result.put("status", true);
         return result;

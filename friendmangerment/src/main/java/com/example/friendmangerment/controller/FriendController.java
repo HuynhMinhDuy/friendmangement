@@ -24,7 +24,7 @@ public class FriendController {
     FriendManagementService friendManagementService;
 
     @PostMapping("/connect")
-    public Map<String, Boolean> createPerson(@RequestBody DoubleEmailRequest connectList) throws ResourceNotFoundException, ResourceAlreadyExist {
+    public Map<String, Boolean> createConnect(@RequestBody DoubleEmailRequest connectList) throws ResourceNotFoundException, ResourceAlreadyExist {
         return friendManagementService.createConnection(connectList.getFriends().get(0),connectList.getFriends().get(1) );
 
     }

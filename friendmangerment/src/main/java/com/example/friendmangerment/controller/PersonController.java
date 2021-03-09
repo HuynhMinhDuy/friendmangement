@@ -17,10 +17,10 @@ public class PersonController {
     @Autowired
     PersonService personService;
 
-
     @PostMapping("/register")
     public Map<String, Boolean> createPerson(@RequestBody Person person) throws ResourceAlreadyExist, InValidEmailException {
-        return personService.register(person);
+        Map<String, Boolean> res= personService.register(person);
+        return res;
     }
 
 }
