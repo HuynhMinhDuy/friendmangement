@@ -58,7 +58,7 @@ public class FriendControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.status").value(true));
+                .andExpect(jsonPath("$.success").value(true));
     }
 
     @Test

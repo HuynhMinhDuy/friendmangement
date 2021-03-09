@@ -1,8 +1,6 @@
 package com.example.friendmangerment.controller;
 
 
-import com.example.friendmangerment.FriendmangermentApplication;
-import com.example.friendmangerment.exception.ApiError;
 import com.example.friendmangerment.exception.InValidEmailException;
 import com.example.friendmangerment.exception.ResourceAlreadyExist;
 import com.example.friendmangerment.model.Person;

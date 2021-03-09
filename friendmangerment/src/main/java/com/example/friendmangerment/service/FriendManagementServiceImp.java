@@ -52,7 +52,7 @@ public class FriendManagementServiceImp implements FriendManagementService {
 
         friendRepository.save(friendManagement);
         Map<String, Boolean> result = new HashMap<>();
-        result.put("status", true);
+        result.put("success", true);
         return result;
     }
 

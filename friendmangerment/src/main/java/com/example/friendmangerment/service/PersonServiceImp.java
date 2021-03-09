@@ -22,20 +22,16 @@ public class PersonServiceImp implements PersonService {
     @Override
     public Map<String, Boolean> register(Person person) throws ResourceAlreadyExist, InValidEmailException {
 
-        System.out.println("Calling Service here ");
-
         if(personRepository.existsByEmail(person.getEmail())) {
-            System.out.println("test print here");
             throw new ResourceAlreadyExist();
         }
         ValidateEmail vailidateEmail = new ValidateEmail();
         if(vailidateEmail.validaEmail(person.getEmail()) == false) {
             throw new InValidEmailException();
         }
-        System.out.println("test print here ???????");
         Map<String, Boolean> result = new HashMap<>();
         personRepository.save(person);
-        result.put("status", true);
+        result.put("success", true);
         return  result;
     }
 }
